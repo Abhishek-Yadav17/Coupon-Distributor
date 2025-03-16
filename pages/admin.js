@@ -264,7 +264,7 @@ const AdminPanel = () => {
               </CardContent>
             </Card>
 
-            <Card sx={{ ...cardStyle, background: 'linear-gradient(to right, #F1DFFF, #EAD0FF)', color: '#27097A' }}>
+            <Card sx={{ ...cardStyle, background: 'linear-gradient(to right, #FFEBDF, #FFE0CF) ', color: '#7A0916' }}>
               <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
                 <DoNotDisturb sx={{ alignSelf: 'flex-end', fontSize: '2vw' }} />
                 <Typography sx={{ fontSize: '1.1vw', mt: 3 }}>Disabled Coupons</Typography>
@@ -280,7 +280,7 @@ const AdminPanel = () => {
               </CardContent>
             </Card>
 
-            <Card sx={{ ...cardStyle, background: 'linear-gradient(to right, #FFEBDF, #FFE0CF)', color: '#7A0916' }}>
+            <Card sx={{ ...cardStyle, background: 'linear-gradient(to right, #F1DFFF, #EAD0FF)', color: ' #27097A' }}>
               <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
                 <NewReleases sx={{ alignSelf: 'flex-end', fontSize: '2vw' }} />
                 <Typography sx={{ fontSize: '1.1vw', mt: 3 }}>Recently Added</Typography>
@@ -358,7 +358,38 @@ const AdminPanel = () => {
             fullWidth
             value={couponCode}
             onChange={(e) => setCouponCode(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 4,
+              mt: 3,
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#6A677A',
+                  borderRadius: '10px',
+                },
+                '&:hover fieldset': {
+                  borderColor: '#8478A7',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#8478A7',
+                },
+                '& input': {
+                  color: '#000',
+                  bgcolor: '#FFF',
+                  borderRadius: '10px',
+                  height: '1.3vw'
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: '#6A677A',
+                fontSize: '1vw'
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: '#8478A7',
+              },
+              '& .MuiInputBase-input::placeholder': {
+                color: '#6A677A',
+              },
+            }}
           />
 
           <TextField
@@ -371,7 +402,37 @@ const AdminPanel = () => {
             SelectProps={{
               native: true,
             }}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 4,
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#6A677A',
+                  borderRadius: '10px',
+                },
+                '&:hover fieldset': {
+                  borderColor: '#8478A7',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#8478A7',
+                },
+                '& input': {
+                  color: '#000',
+                  bgcolor: '#FFF',
+                  borderRadius: '10px',
+                  height: '1.3vw'
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: '#6A677A',
+                fontSize: '1vw'
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: '#8478A7',
+              },
+              '& .MuiInputBase-input::placeholder': {
+                color: '#6A677A',
+              },
+            }}
           >
             <option value="available">Available</option>
             <option value="claimed">Claimed</option>
@@ -384,10 +445,40 @@ const AdminPanel = () => {
             type="date"
             value={expiryDate}
             onChange={(e) => setExpiryDate(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#6A677A',
+                  borderRadius: '10px',
+                },
+                '&:hover fieldset': {
+                  borderColor: '#8478A7',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#8478A7',
+                },
+                '& input': {
+                  color: '#000',
+                  bgcolor: '#FFF',
+                  borderRadius: '10px',
+                  height: '1.3vw'
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: '#6A677A',
+                fontSize: '1vw'
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: '#8478A7',
+              },
+              '& .MuiInputBase-input::placeholder': {
+                color: '#6A677A',
+              },
+            }}
           />
 
-          <div>
+          <div style={{marginBottom: 5}}>
             <label>Active</label>
             <input
               type="checkbox"
@@ -400,7 +491,7 @@ const AdminPanel = () => {
             variant="contained"
             color="primary"
             onClick={updatingCoupon ? handleUpdateCoupon : handleAddCoupon}
-            sx={{ mt: 2 }}
+            sx={{ bgcolor: '#1C252E', borderRadius: '9px', py: 1, px: 2, textTransform: 'capitalize', fontWeight: 'bold', mb: 3 }}
           >
             {updatingCoupon ? 'Update Coupon' : 'Add Coupon'}
           </Button>
@@ -417,8 +508,11 @@ const modalStyle = {
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
   boxShadow: 24,
-  p: 4,
-  width: 300,
+  py: 3,
+  px: 4,
+  width: 350,
+  height: 400,
+  borderRadius: '16px'
 };
 
 export default AdminPanel;
